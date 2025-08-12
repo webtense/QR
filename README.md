@@ -30,13 +30,26 @@ pip install -r requirements.txt
 ```
 
 ## Uso
+### Interfaz gráfica
 1. Ejecuta `python3 qr_manager.py`.
 2. Ingresa las credenciales:
    - Usuario: `Admin`
    - Contraseña: `BTR6969`
-3. Utiliza el menú para crear, listar, editar o eliminar códigos QR.
-   - Puedes elegir entre un QR normal (URL interna) o un QR con contraseña de WiFi.
-   - Es posible añadir texto, elegir formato (PNG o SVG) y colores.
-   - Los archivos se guardan en el directorio actual.
+3. Desde la interfaz puedes crear, editar o eliminar códigos QR.
+   - Elige entre un QR normal (URL interna) o un QR con contraseña de WiFi.
+   - Añade texto opcional, colores personalizados y formato de salida (PNG o SVG).
+   - Se muestra una previsualización del QR generado.
 
-La información de los QR se guarda en `qr_data.json` para futuras ediciones.
+### Consola (sin contraseña)
+```bash
+python3 qr_manager.py --cli
+```
+El modo consola permite las mismas operaciones sin solicitar credenciales.
+
+### Instalar como servicio
+```bash
+python3 qr_manager.py --install-service
+```
+Requiere permisos de `sudo` y crea un servicio `systemd` que ejecuta la interfaz gráfica al iniciar.
+
+Los archivos generados se guardan en el directorio actual y los datos quedan registrados en `qr_data.json` para futuras ediciones.
