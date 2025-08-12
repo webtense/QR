@@ -1,0 +1,2 @@
+# QR
+gestion de QR
