@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Herramientas</h2>
+<form method="post" action="{{ url_for('install_service_route') }}">
+  <button class="btn btn-warning">Instalar como servicio</button>
+</form>
+<a class="btn btn-info mt-3" href="{{ url_for('service_status') }}">Ver estado del servicio</a>
+<h3 class="mt-4">Registro</h3>
+<pre class="bg-light p-3 border" style="max-height:300px;overflow:auto;">{{ log }}</pre>
+{% endblock %}

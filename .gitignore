@@ -1,0 +1,6 @@
+__pycache__/
+qr_data.json
+*.png
+*.svg
+qr_manager.log
+qr_manager.service

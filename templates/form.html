@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{{ 'Editar' if name else 'Crear' }} QR</h2>
+<form method="post">
+  <div class="mb-3">
+    <label class="form-label">Nombre</label>
+    <input class="form-control" name="name" value="{{ name }}" {% if name %}readonly{% endif %}>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Tipo</label>
+    <select class="form-select" name="type" id="type-select">
+      <option value="url" {% if info['type']=='url' %}selected{% endif %}>Normal</option>
+      <option value="wifi" {% if info['type']=='wifi' %}selected{% endif %}>WiFi</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Dato / URL o SSID</label>
+    <input class="form-control" name="data" value="{{ info.get('url', info.get('ssid', '')) }}">
+  </div>
+  <div class="mb-3" id="password-field" {% if info['type']!='wifi' %}style="display:none"{% endif %}>
+    <label class="form-label">Contraseña WiFi</label>
+    <input class="form-control" name="password" value="{{ info.get('password','') }}">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Texto opcional</label>
+    <input class="form-control" name="text" value="{{ info.get('text','') }}">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Color</label>
+    <input class="form-control" name="color" value="{{ info.get('color','black') }}">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Fondo</label>
+    <input class="form-control" name="background" value="{{ info.get('background','white') }}">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Formato</label>
+    <select class="form-select" name="format">
+      <option value="png" {% if info.get('format','png')=='png' %}selected{% endif %}>PNG</option>
+      <option value="svg" {% if info.get('format')=='svg' %}selected{% endif %}>SVG</option>
+    </select>
+  </div>
+  <button class="btn btn-primary" type="submit">Guardar</button>
+</form>
+<script>
+const select = document.getElementById('type-select');
+select.addEventListener('change', function(){
+  document.getElementById('password-field').style.display = this.value==='wifi' ? 'block' : 'none';
+});
+</script>
+{% endblock %}
