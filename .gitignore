@@ -1,0 +1,4 @@
+__pycache__/
+qr_data.json
+*.png
+*.svg
