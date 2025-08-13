@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+static/qrs/
+static/uploads/
+.DS_Store
+Thumbs.db

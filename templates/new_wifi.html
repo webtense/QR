@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Nuevo QR WiFi</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container py-5">
+
+  <h2 class="mb-4">📶 Crear nuevo QR WiFi</h2>
+  <form method="POST" class="needs-validation" novalidate>
+    <div class="mb-3">
+      <label class="form-label">Nombre de la red (SSID) *</label>
+      <input type="text" class="form-control" name="ssid" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Contraseña *</label>
+      <input type="text" class="form-control" name="password" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Tipo de seguridad</label>
+      <select class="form-select" name="security">
+        <option value="WPA" selected>WPA/WPA2</option>
+        <option value="WEP">WEP</option>
+        <option value="nopass">Sin contraseña</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">✅ Crear QR WiFi</button>
+    <a href="/" class="btn btn-secondary">Cancelar</a>
+  </form>
+
+</div>
+
+<script>
+  (() => {
+    'use strict';
+    const forms = document.querySelectorAll('.needs-validation');
+    Array.from(forms).forEach(form => {
+      form.addEventListener('submit', e => {
+        if (!form.checkValidity()) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  })();
+</script>
+</body>
+</html>
+

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Nuevo QR Web</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container py-5">
+
+  <h2 class="mb-4">➕ Crear nuevo QR Web</h2>
+  <form method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
+    <div class="mb-3">
+      <label class="form-label">Nombre del QR *</label>
+      <input type="text" class="form-control" name="name" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">URL destino *</label>
+      <input type="url" class="form-control" name="url" required placeholder="https://...">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Texto inferior (opcional)</label>
+      <input type="text" class="form-control" name="text_bottom">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Texto en el centro (opcional)</label>
+      <input type="text" class="form-control" name="text_center">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Logo en el centro (opcional)</label>
+      <input type="file" class="form-control" name="logo" accept="image/*">
+    </div>
+
+    <button type="submit" class="btn btn-success">✅ Crear QR</button>
+    <a href="/" class="btn btn-secondary">Cancelar</a>
+  </form>
+
+</div>
+
+<script>
+  (() => {
+    'use strict';
+    const forms = document.querySelectorAll('.needs-validation');
+    Array.from(forms).forEach(form => {
+      form.addEventListener('submit', e => {
+        if (!form.checkValidity()) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  })();
+</script>
+</body>
+</html>
+

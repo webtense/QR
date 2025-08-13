@@ -1,0 +1,78 @@
+{
+  "1": {
+    "name": "Siente SPA",
+    "url": "https://docs.google.com/forms/d/e/1FAIpQLScbFJG1DC8hA3i99llGM4zS_2c788JxeWyn93dZ4ga-edkV3g/viewform?usp=header",
+    "text_bottom": "Spa Siente",
+    "text_center": ""
+  },
+  "2": {
+    "name": "Piscina Exterior siente",
+    "url": "https://forms.gle/AMgdFq8AsHzFzWcK8",
+    "text_bottom": "Piscina  Siente  ",
+    "text_center": ""
+  },
+  "3": {
+    "name": "Piscina Exterior Hotel Taull ",
+    "url": "https://forms.gle/o2MLq9CAtuWXJyAeA",
+    "text_bottom": "Piscina Taull  ",
+    "text_center": ""
+  },
+  "4": {
+    "name": "Hotel Romanic",
+    "url": "https://drive.google.com/drive/folders/1hT-HLQoxCXfWH5IlZo7ESBipcRTXtaKe?usp=drive_link",
+    "text_bottom": "Hotel Romanic ",
+    "text_center": ""
+  },
+  "5": {
+    "name": "Siente Boi & SPA",
+    "url": "https://drive.google.com/drive/folders/195FRYth-82zYGaEfsLgNB3VT-KdOS5J7?usp=drive_link",
+    "text_bottom": "Siente Boi & SPA",
+    "text_center": ""
+  },
+  "6": {
+    "name": "Solana",
+    "url": "https://drive.google.com/drive/folders/10o-v2jKysr-jvDJjCr7P1xY4FBzXqj4v?usp=drive_link",
+    "text_bottom": "Solana",
+    "text_center": ""
+  },
+  "7": {
+    "name": "Hotel Ta\u00fcll ",
+    "url": "https://drive.google.com/drive/folders/1Z9ozeuB_VBhnprLMM0yPrL5VofzX4f7f?usp=drive_link",
+    "text_bottom": "Hotel Ta\u00fcll ",
+    "text_center": "",
+    "visitas": 1,
+    "dispositivos": [
+      {
+        "timestamp": "2025-06-25T10:29:06.066174",
+        "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 19_0_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/137.0.7151.107 Mobile/15E148 Safari/604.1"
+      }
+    ]
+  },
+  "9": {
+    "name": "WiFi SienteBoi",
+    "url": "#",
+    "text_bottom": "Red: SienteBoi",
+    "text_center": "WiFi",
+    "visitas": 0,
+    "dispositivos": [],
+    "tipo": "wifi"
+  },
+  "10": {
+    "name": "WiFi SienteBoi",
+    "url": "#",
+    "text_bottom": "Red: SienteBoi",
+    "text_center": "WiFi",
+    "visitas": 0,
+    "dispositivos": [],
+    "tipo": "wifi"
+  },
+  "11": {
+    "name": "WiFi SienteBoi",
+    "url": "#",
+    "text_bottom": "Red: SienteBoi",
+    "text_center": "WiFi",
+    "visitas": 0,
+    "dispositivos": [],
+    "tipo": "wifi"
+  }
+}

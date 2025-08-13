@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestor de QRs - Boí Taüll Resort</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    form.inline-form {
+      display: inline-block;
+      margin: 0 3px;
+    }
+    .tab-content {
+      padding-top: 2rem;
+    }
+  </style>
+</head>
+<body class="bg-light">
+
+<div class="container py-4">
+  <div class="text-center mb-4">
+    <h1 class="display-5 fw-bold">Gestor de Códigos QR</h1>
+    <p class="lead">Boí Taüll Resort</p>
+    <a href="/new" class="btn btn-success">➕ Crear QR Visual</a>
+    <a href="/wifi" class="btn btn-primary">📶 Crear QR WiFi</a>
+  </div>
+
+  <!-- Navegación por pestañas -->
+  <ul class="nav nav-tabs" id="qrTabs" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="qr-tab" data-bs-toggle="tab" data-bs-target="#qr" type="button" role="tab">
+        🎯 QRs Visuales
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="wifi-tab" data-bs-toggle="tab" data-bs-target="#wifi" type="button" role="tab">
+        📶 QRs WiFi
+      </button>
+    </li>
+  </ul>
+
+  <!-- Contenido por pestañas -->
+  <div class="tab-content" id="qrTabContent">
+    <!-- TAB QRs normales -->
+    <div class="tab-pane fade show active" id="qr" role="tabpanel">
+      {% if data %}
+      <div class="row">
+        {% for id, info in data.items() %}
+        <div class="col-md-4">
+          <div class="card shadow-sm mb-4">
+            <img src="/static/qrs/{{id}}.png" class="card-img-top" alt="QR {{ info.name }}">
+            <div class="card-body text-center">
+              <h5 class="card-title">{{ info.name }}</h5>
+              <p>{{ info.text_bottom }}</p>
+              <p><a href="{{ info.url }}" target="_blank">{{ info.url }}</a></p>
+
+              <form action="/download/{{ id }}" method="get" class="d-flex justify-content-center mb-2">
+                <select name="format" class="form-select form-select-sm w-auto me-2">
+                  <option value="png">PNG</option>
+                  <option value="jpg">JPG</option>
+                  <option value="pdf">PDF</option>
+                </select>
+                <button type="submit" class="btn btn-sm btn-outline-success">⬇ Descargar</button>
+              </form>
+
+              <a href="/edit/{{ id }}" class="btn btn-outline-primary btn-sm mb-2">✏️ Editar</a>
+              <a href="/stats/{{ id }}" class="btn btn-outline-info btn-sm mb-2">📊 Estadísticas</a>
+
+              <form method="post" action="/delete/{{ id }}" class="inline-form"
+                    onsubmit="return confirm('¿Estás seguro de que quieres borrar este QR?');">
+                <button type="submit" class="btn btn-sm btn-outline-danger">🗑 Borrar</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      {% else %}
+        <p class="text-center text-muted">No hay QRs visuales creados aún.</p>
+      {% endif %}
+    </div>
+
+    <!-- TAB WiFi -->
+    <div class="tab-pane fade" id="wifi" role="tabpanel">
+      {% if wifis %}
+      <div class="row">
+        {% for id, info in wifis.items() %}
+        <div class="col-md-4">
+          <div class="card shadow-sm mb-4">
+            <img src="/static/qrs/{{id}}.png" class="card-img-top" alt="QR WiFi {{ info.name }}">
+            <div class="card-body text-center">
+              <h5 class="card-title">{{ info.name }}</h5>
+              <p>{{ info.text_bottom }}</p>
+
+              <form action="/download/{{ id }}" method="get" class="d-flex justify-content-center mb-2">
+                <select name="format" class="form-select form-select-sm w-auto me-2">
+                  <option value="png">PNG</option>
+                  <option value="jpg">JPG</option>
+                  <option value="pdf">PDF</option>
+                </select>
+                <button type="submit" class="btn btn-sm btn-outline-success">⬇ Descargar</button>
+              </form>
+
+              <a href="/stats/{{ id }}" class="btn btn-outline-info btn-sm mb-2">📊 Estadísticas</a>
+
+              <form method="post" action="/delete/{{ id }}" class="inline-form"
+                    onsubmit="return confirm('¿Estás seguro de que quieres borrar este QR?');">
+                <button type="submit" class="btn btn-sm btn-outline-danger">🗑 Borrar</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      {% else %}
+        <p class="text-center text-muted">No hay QRs WiFi aún.</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
